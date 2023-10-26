@@ -16,22 +16,34 @@ class test_Place(test_basemodel):
     def test_city_id(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.city_id), str)
+        self.assertEqual(type(new.city_id), str if
+
+                         os.getenv('HBNB_TYPE_STORAGE') != 'db' else
+                         type(None))
 
     def test_user_id(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.user_id), str)
+        self.assertEqual(type(new.user_id), str if
+
+                         os.getenv('HBNB_TYPE_STORAGE') != 'db' else
+                         type(None))
 
     def test_name(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.name), str)
+        self.assertEqual(type(new.name), str if
+
+                         os.getenv('HBNB_TYPE_STORAGE') != 'db' else
+                         type(None))
 
     def test_description(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.description), str)
+        self.assertEqual(type(new.description), str if
+
+                         os.getenv('HBNB_TYPE_STORAGE') != 'db' else
+                         type(None))
 
     def test_number_rooms(self):
         """ """
