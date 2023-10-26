@@ -9,9 +9,8 @@ from models.review import Review
 
 
 class User(BaseModel, Base):
-    """
-    This is a user class
-    """
+    """   """
+
     __tablename__ = "users"
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)

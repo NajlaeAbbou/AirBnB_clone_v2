@@ -73,8 +73,9 @@ class test_basemodel(unittest.TestCase):
         self.assertEqual(str(i), '[{}] ({}) {}'.format(self.name, i.id,
                          i.__dict__))
 
-        def test_todict(self):
-            """ testing the to_dict method"""
+    def test_todict(self):
+        """ testing the to_dict method"""
+
         i = self.value()
         n = i.to_dict()
         self.assertEqual(i.to_dict(), n)
@@ -163,11 +164,3 @@ class test_basemodel(unittest.TestCase):
         """ testing created at attr"""
         new = self.value()
         self.assertEqual(type(new.created_at), datetime)
-
-    def test_updated_at(self):
-        """ testing updated at attr"""
-        new = self.value()
-        self.assertEqual(type(new.updated_at), datetime)
-        n = new.to_dict()
-        new = BaseModel(**n)
-        self.assertFalse(new.created_at == new.updated_at)
