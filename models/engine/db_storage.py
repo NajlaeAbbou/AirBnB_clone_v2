@@ -75,9 +75,7 @@ class DBStorage:
             self.__session.delete(obj)
 
     def reload(self):
-        '''
-            Commit all changes of current database session
-        '''
+        '''Commit all changes of current database session'''
         self.__session = Base.metadata.create_all(self.__engine)
         factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(factory)

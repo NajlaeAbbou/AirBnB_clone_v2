@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Connect server
+ssh -i ~/.ssh/lbserver ubuntu@54.146.82.196
