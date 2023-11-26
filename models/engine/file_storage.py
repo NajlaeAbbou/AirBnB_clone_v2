@@ -57,10 +57,17 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        ''' 
+        ''' deletes the object obj from the attribute
+            __objects if it's inside it
         '''
         if obj is None:
             return
         key = obj.to_dict()['__class__'] + '.' + obj.id
         if key in self.__objects.keys():
             del self.__objects[key]
+
+    def close(self):
+        """
+        Calls reload() method for deserializing the JSON file to objects
+        """
+        self.reload()
